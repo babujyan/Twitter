@@ -12,28 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TwitterClient;
 
 namespace Twitter
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for post.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class post : UserControl
     {
-        public MainWindow()
+        public post()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var textBox = (TextBox)sender;
-            if(!String.IsNullOrEmpty(textBox.Text))
-            {
-                this.Tweets.ItemsSource = Client.GetTweets(textBox.Text + "&count=100");
-            }
-            
         }
     }
 }

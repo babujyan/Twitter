@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Twitter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="400" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>    
+        </Grid.ColumnDefinitions>
+
+        <TextBox Width="300" Margin="10" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0"
+                 TextChanged="TextBox_TextChanged" ></TextBox>
+        <ListView Grid.Row="1" Grid.Column="1" MinWidth="750" Width="auto" Name="Tweets">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <StackPanel Width="750" Orientation="Horizontal">
+                            <Image Margin="10" Width="80" Height="80" Source="{Binding Image}"></Image>
+                            <StackPanel Width="640" Orientation="Vertical">
+                                <TextBlock TextWrapping="Wrap" Margin="5" Height="15" Text="{Binding Username}"></TextBlock>
+                                <TextBlock TextWrapping="Wrap" Margin="5" Height="65" Text="{Binding Text}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
